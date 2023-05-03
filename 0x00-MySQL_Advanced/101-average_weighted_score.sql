@@ -3,7 +3,7 @@
 
 DROP procedure IF EXISTS ComputeAverageWeightedScoreForUser;
 DELIMITER //
-CREATE PROCEDURE ComputeAverageWeightedScoreForUser
+CREATE PROCEDURE ComputeAverageWeightedScoreForUser()
 BEGIN
     declare n int DEFAULT 0;
     declare i int DEFAULT  0;
@@ -18,5 +18,5 @@ BEGIN
         SET average_score = @average_weighted_score WHERE id = (SELECT id FROM users limit i, 1);
         SET i = i + 1;
     END while;
-END;
-//
+END //
+DELIMITER ;
